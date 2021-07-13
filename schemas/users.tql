@@ -1,0 +1,21 @@
+
+transaction test schema write
+
+define
+  user sub entity,
+    owns first-name,
+    owns last-name;
+
+
+  team sub entity,
+    owns name;
+
+  first-name sub attribute,
+    value string;
+  last-name sub attribute,
+    value string;
+
+  name sub attribute,
+    value string;
+
+commit
