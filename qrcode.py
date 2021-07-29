@@ -4,14 +4,13 @@ import cairosvg
 from io import BytesIO
 import base64
 
-def createQR():
-  text = 'rebeka hi'
-  one_qr = qrlib.generate_custom_qr_file(text, language='en', qr_format='PNG',
+def createQR(url, style, colour, inner_eye_style, inner_eye_colour, outer_eye_style, outer_eye_colour, bg_colour):
+  one_qr = qrlib.generate_custom_qr_file(url, language='en', qr_format='PNG',
                   size='1000', ec_level='H', instructions=False,
-                  style='sieve', style_color='#000000',
-                  inner_eye_style='leaf', inner_eye_color='#000000',
-                  outer_eye_style='left_eye', outer_eye_color='#000000',
-                  bg_color='#FFFFFF')
+                  style=style, style_color='#' + colour,
+                  inner_eye_style=inner_eye_style, inner_eye_color='#' + inner_eye_colour,
+                  outer_eye_style=outer_eye_style, outer_eye_color='#' + outer_eye_colour,
+                  bg_color='#' + bg_colour)
 
   qr = Image.open(one_qr).convert('RGBA')
 
